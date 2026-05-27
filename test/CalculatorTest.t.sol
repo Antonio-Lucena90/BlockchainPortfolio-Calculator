@@ -96,6 +96,7 @@ contract CalculatorTest is Test {
     //Fuzzing Testing--> foundry se encarga de hacer llamadas con parametros aleatorios.
 
     function testFuzzingDivision(uint256 a_, uint256 b_) public {
+        vm.assume(b_ != 0);
         vm.startPrank(admin);
 
         calculator.division(a_, b_);
