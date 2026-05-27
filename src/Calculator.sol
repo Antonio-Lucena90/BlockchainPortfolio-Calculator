@@ -51,7 +51,7 @@ contract Calculator {
     //4. Division
 
     function division(uint256 a_, uint256 b_) external onlyAdmin returns (uint256 result_) {
-        if (b_ == 0) return 0;
+        require(b_ != 0, "Cannot divide by zero");
         result_ = a_ / b_;
         result = result_;
         emit Division(a_, b_, result_);
